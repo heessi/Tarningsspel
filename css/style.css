@@ -1,0 +1,105 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1em;
+	color: #777;
+}
+
+#header  {
+	width: 100%;
+	background: #eee;
+	padding: 2em 0;
+}
+
+#header-content {
+	width: 50%;
+	margin: 0 auto;
+}
+
+#header-content h1 {
+	color: #555;
+}
+
+#main {
+	width: 50%;
+	margin: 1.5em auto 0 auto;
+}
+
+#main:after {
+	display: block;
+	clear: both;
+	content: '';
+}
+
+#main-content {
+	float: left;
+	width: 65%;
+}
+
+#main-content p {
+	margin: 0 0 2em;
+	line-height: 1.5;
+}
+
+#sidebar {
+	width: 30%;
+	float: right;
+}
+
+#sidebar ol, #sidebar ul {
+	margin-top: 0;
+	padding-left: 22px;
+	line-height: 1.5;;
+}
+
+#friendsProjects ul {
+	padding: 0;
+}
+
+#friendsProjects li {
+	list-style: none;
+}
+
+.bigBtn {
+	border-radius: 7px;
+	background: #333;
+	color: #f1f1f1;
+	padding: 8px 10px 11px;
+}
+
+#guessInfo {
+	display: hidden;
+	padding: 1em;
+}
+
+.correctGuess {
+	display: visible;
+	background: #e8f5e9;
+}
+.wrongGuess {
+	display: visible;
+	background: #ffebee;
+}
+
+.hidden {
+	display: hidden;
+}
+
+a {
+	color: #222;
+	text-decoration: none;
+}
+
+h2 {
+	color: #444;
+	margin: 0;
+	padding: 0;
+}
+
+input {
+	background: #444;
+	color: #eee;
+	border: 1px solid #ddd;
+	padding: 10px;
+}
