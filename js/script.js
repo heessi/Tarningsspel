@@ -5,19 +5,18 @@ var numOfRolls = 0;
 function randomNr()
 {
 
-	//var r = Math.floor(Math.random() * 6) + 1;
 	var r = Math.random();
 	if(r < (1/6))
 		return 1;
-	else if(r < (2/6))
+	else if(r <= (2/6))
 		return 2;
-	else if(r < (3/6))
+	else if(r <= (3/6))
 		return 3;
-	else if(r < (4/6))
+	else if(r <= (4/6))
 		return 4;
-	else if(r < (5/6))
+	else if(r <= (5/6))
 		return 5;
-	else if(r < (6/6))
+	else if(r <= (6/6))
 		return 6;
 
 }
@@ -26,9 +25,9 @@ function rollDice()
 {
 
 	document.getElementById("rule1").style.color = '#777777';
-	var inputValue = document.getElementById("result").value;
+	var inputValue = document.getElementById("guessResult").value;
 
-	if(((inputValue > 2) && (inputValue < 19)) && (numOfRolls < 11))
+	if(((inputValue > 2) && (inputValue < 19)) && (numOfRolls < 10))
 	{
 
 		// Kastar tärningen 4 gånger
@@ -54,12 +53,13 @@ function rollDice()
 			resultOfDices[resultOfDices.length - 1] = (resultOfDices[resultOfDices.length - 1] * inputValue);
 			guessInfo.className = "correctGuess";
 			//document.getElementById("guessInfo").style.background="#e8f5e9";
-			document.getElementById("guessInfo").innerHTML = "Du chasnade rätt! <br />Den fjärde tärningens värde multiplicerades till: " + resultOfDices[resultOfDices.length - 1];
+			document.getElementById("guessInfo").innerHTML = "Du chansade rätt! <br />Den fjärde tärningens värde multiplicerades till: " + resultOfDices[resultOfDices.length - 1];
 		}
+
 		else
 		{
 			guessInfo.className = "wrongGuess";
-			document.getElementById("guessInfo").innerHTML = "Summan av de tre första tärningarna multiplicerades till: " + sumOfFirstThree + "<br />Du chasnade på: " + inputValue;
+			document.getElementById("guessInfo").innerHTML = "Summan av de tre första tärningarna summerades till: " + sumOfFirstThree + "<br />Du chasnade på: " + inputValue;
 		}
 
 		// Skriver ut tärningarnas resultat
@@ -74,21 +74,32 @@ function rollDice()
 
 		}
 
-		document.getElementById("result").value = "";
 		numOfRolls++;
 
+		document.getElementById("rule2").innerHTML = "Du har  " + (10 - numOfRolls) + " kast kvar.";
+
+		if (numOfRolls == 10)
+		{
+			printResult();
+		}
+
 	}
-	else if(numOfRolls > 10)
-		alert("Du har redan kastat 10 gånger")
+	else if(numOfRolls >= 10)
+		document.getElementById("rule2").innerHTML = "Du har inga kast kvar. Starta en ny omgång."
 	else
 	{
 		document.getElementById("rule1").style.color = '#c10000';
 	}
-
-	document.getElementById("rule2").innerHTML = "Du har  " + (10 - numOfRolls) + " kast kvar.";
-
 }
 
+function printResult()
+{
+
+	document.getElementById("gameOver").style.display = "block";
+	document.getElementById("gameOver").innerHTML =
+	"Spelet är över! Den totala summan blev: " + sumOfDices;
+
+}
 
 function newRound()
 {
@@ -99,10 +110,8 @@ function newRound()
 	guessInfo.className = "";
 	document.getElementById('dicesResult').innerHTML = "";
 	document.getElementById('guessInfo').innerHTML = "";
+	document.getElementById("rule1").style.color = '#777777';
+	document.getElementById("rule2").innerHTML = "Du har totalt 10 kast på dig";
+	document.getElementById("gameOver").style.display = "none";
 
-}
-
-function clearField()
-{
-	document.getElementById("result").value = "";
 }

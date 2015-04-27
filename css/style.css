@@ -1,7 +1,10 @@
+* {
+	font-family: 'Open Sans', sans-serif;
+
+}
 html, body {
 	margin: 0;
 	padding: 0;
-	font-family: 'Open Sans', sans-serif;
 	font-size: 1em;
 	color: #777;
 }
@@ -42,6 +45,10 @@ html, body {
 	line-height: 1.5;
 }
 
+#rules {
+	margin-bottom: 2em;
+}
+
 #sidebar {
 	width: 30%;
 	float: right;
@@ -63,9 +70,21 @@ html, body {
 
 .bigBtn {
 	border-radius: 7px;
-	background: #333;
-	color: #f1f1f1;
+	background: #444;
+	color: #E9E9E9;
 	padding: 8px 10px 11px;
+	font-size: 0.85em;
+}
+
+.bigBtn:first-child {
+	margin: 0 10px 0 0;
+}
+
+#gameOver {
+	background: #F5F5F5;
+	padding: 1em;
+	display: none;
+	padding: 1px solid #EEE;
 }
 
 #guessInfo {
@@ -75,15 +94,13 @@ html, body {
 
 .correctGuess {
 	display: visible;
-	background: #e8f5e9;
+	background: #F1F8E9;
+	border: 1px solid #DCEDC8;
 }
 .wrongGuess {
 	display: visible;
 	background: #ffebee;
-}
-
-.hidden {
-	display: hidden;
+	border: 1px solid #FFCDD2;
 }
 
 a {
@@ -99,7 +116,7 @@ h2 {
 
 input {
 	background: #444;
-	color: #eee;
+	color: #E9E9E9;
 	border: 1px solid #ddd;
 	padding: 10px;
 }

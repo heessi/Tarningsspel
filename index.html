@@ -2,7 +2,7 @@
 
 	<head>
 		
-		<title>Tärningsspel"</title>
+		<title>Tärningsspel</title>
 		<link type="text/css" rel="stylesheet" href="css/style.css">
 		<script type="text/javascript" src="js/script.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -28,7 +28,7 @@
 			
 				<h2>Ett skolprojekt</h2>
 				<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus, enim quis commodo faucibus, velit justo commodo ante, sit amet feugiat orci tellus at mi. Praesent ex elit, tristique ut finibus et, accumsan vitae leo. Duis laoreet, ante sed vulputate auctor, ex eros aliquet sapien, ut sollicitudin nisl ex vel turpis. Sed vitae dignissim quam. Ut fringilla ante vitae fringilla posuere. Suspendisse molestie mattis purus, ac maximus ante pharetra eu. Vivamus nisi dui, posuere id varius vitae, tristique et lorem. Praesent molestie ex et dui posuere gravida. Morbi urna felis, posuere sagittis odio et, sagittis posuere ex. 
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus, enim quis commodo faucibus, velit justo commodo ante, sit amet feugiat orci tellus at mi. Praesent ex elit, tristique ut finibus et, accumsan vitae leo. Duis laoreet, ante sed vulputate auctor, ex eros aliquet sapien, ut sollicitudin nisl ex vel turpis.
 				</p>
 
 				<ul id="rules">
@@ -36,18 +36,24 @@
 					<li id="rule1">Chansa på ett värde mellan 3 till 18</li>
 					<li id="rule2">Du har totalt 10 kast på dig</li>
 
-				</ul>
+				</ul>	
 
 				<p>
 
-						<input value="Ange ett tal mellan 3-18" id="result" name="result" onclick="clearField()">
+					<input placeholder="Ange ett tal mellan 3 till 18" id="guessResult" name="guessResult">
 
 				</p>
 
 				<p>
 
 					<a class="bigBtn" onclick="newRound();return false;" href="#">Ny omgång</a>
-					<a class="bigBtn" onclick="rollDice();return false;" href="#">Kasta tärning</a>
+					<a class="bigBtn" onclick="rollDice();return false;" href="#">Kasta tärningar</a>
+
+				</p>
+
+				<p id="gameOver">
+
+					Spelet är över!
 
 				</p>
 
