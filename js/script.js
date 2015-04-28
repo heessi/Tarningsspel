@@ -1,6 +1,7 @@
 var resultOfDices = [];
 var sumOfDices = 0;
 var numOfRolls = 0;
+var numOfAllowedRolls = 10;
 
 function randomNr()
 {
@@ -27,7 +28,7 @@ function rollDice()
 	document.getElementById("rule1").style.color = '#777777';
 	var inputValue = document.getElementById("guessResult").value;
 
-	if(((inputValue > 2) && (inputValue < 19)) && (numOfRolls < 10))
+	if(((inputValue > 2) && (inputValue < 19)) && (numOfRolls < numOfAllowedRolls))
 	{
 
 		// Kastar tärningen 4 gånger
@@ -58,8 +59,10 @@ function rollDice()
 
 		else
 		{
+			
 			guessInfo.className = "wrongGuess";
 			document.getElementById("guessInfo").innerHTML = "Summan av de tre första tärningarna summerades till: " + sumOfFirstThree + "<br />Du chasnade på: " + inputValue;
+		
 		}
 
 		// Skriver ut tärningarnas resultat
@@ -76,20 +79,22 @@ function rollDice()
 
 		numOfRolls++;
 
-		document.getElementById("rule2").innerHTML = "Du har  " + (10 - numOfRolls) + " kast kvar.";
+		document.getElementById("rule2").innerHTML = "Du har  " + (numOfAllowedRolls - numOfRolls) + " kast kvar.";
 
-		if (numOfRolls == 10)
+		if (numOfRolls == numOfAllowedRolls)
 		{
+			document.getElementById("rule2").innerHTML = "Du har inga kast kvar. Starta en ny omgång."
 			printResult();
 		}
 
 	}
-	else if(numOfRolls >= 10)
+	else if(numOfRolls >= 9)
 		document.getElementById("rule2").innerHTML = "Du har inga kast kvar. Starta en ny omgång."
 	else
 	{
 		document.getElementById("rule1").style.color = '#c10000';
 	}
+
 }
 
 function printResult()
@@ -115,3 +120,32 @@ function newRound()
 	document.getElementById("gameOver").style.display = "none";
 
 }
+
+/* jQuery */
+
+$(document).ready(function() {
+
+	$("#theGame").hide();
+	$("#quitGame").hide();
+
+	$('#startGame').click(function() {
+
+		$("#introduction").fadeOut();
+		$("#startGame").fadeOut();
+
+		$("#theGame").fadeIn();
+		$("#quitGame").fadeIn();
+
+	});
+
+	$('#quitGame').click(function() {
+
+		$("#introduction").fadeIn();
+		$("#startGame").fadeIn();
+
+		$("#theGame").fadeOut();
+		$("quitGame").fadeOut();
+
+	});
+
+});
